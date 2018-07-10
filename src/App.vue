@@ -1,51 +1,94 @@
 <template>
   <div id="app">
     <div class="head-wrap">
-      <ul class="head">
-        <li class="logo">
-          <router-link to="/home"></router-link>
-        </li>
-        <li>
-          <router-link to="/home">首页</router-link>
-        </li>
-        <li>
-          <router-link to="/contactUs">联系我们</router-link>
-        </li>
-        <li class="no_login" v-if="!isLogin">
-          <router-link to="/login">登录</router-link>
-        </li>
-        <li class="login" v-if="isLogin" @mouseleave="leaveUl">
-          <div @click.capture="toggle">{{userName}}</div>
-          <ul v-if="switchover">
-            <li><a href="/#/myOrder">我的订单</a></li>
-            <li><a href="/#/receivingInfo">收货地址</a></li>
-            <li @click="dropOut">退出登录</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="head">
+        <router-link to="/home">
+          <img class="logo" src="./common/images/logo.png" alt="">
+        </router-link>
+        <ul>
+          <li>
+            <router-link to="/home">首页</router-link>
+          </li>
+          <li>
+            <router-link to="/contactUs">产品及解决方案</router-link>
+            <div>
+              <section>
+                <ul class="anchor-list">
+                  <li><a href="">产品及解决方案</a></li>
+                  <li><a href="">BAAS产品</a></li>
+                  <li><a href="">以太坊/FABRIC基础平台</a></li>
+                  <li><a href="">区块链业务系统</a></li>
+                  <li><a href="">数字货币钱包</a></li>
+                  <li><a href="">PFS技术</a></li>
+                  <li><a href="">区块链浏览器</a></li>
+                </ul>
+              </section>
+            </div>
+          </li>
+          <li class="no_login">
+            <router-link to="/login">关于我们</router-link>
+            <div>
+              <section>
+                <ul class="anchor-list about-us">
+                  <li><a href="">公司简介</a></li>
+                  <li><a href="">加入我们</a></li>
+                  <li><a href="">联系我们</a></li>
+                </ul>
+              </section>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+
     </div>
+
     <div class="main_wrap">
       <router-view class="main" v-if="isRouterAlive"></router-view>
     </div>
+
     <div class="footer-wrap">
       <div class="footer">
-        <div class="ft-box">
-          <a href="/"></a>
-        </div>
-        <div class="ft-box">
-          <span>预售产品</span>
-          <ul class="text">
-            <li><a href="javascript:void(0)">可信盾</a></li>
-            <li><a href="javascript:void(0)">可信伴侣</a></li>
+        <div class="footer-box">
+          <h3>
+            <span class="icon-product"></span>
+            产品及解决方案
+          </h3>
+          <ul>
+            <li>Baas产品</li>
+            <li>以太坊/fabric基础平台</li>
+            <li>区块链业务系统</li>
+            <li>数字货币钱包</li>
+            <li>IPFS技术</li>
+            <li>区块链浏览器</li>
           </ul>
         </div>
-        <div class="ft-box">
-          <span>渠道合作</span>
-          <ul class="text">
-            <li><a href="javascript:void(0)">咨询电话：010 - 63827419</a></li>
-            <li><a href="javascript:void(0)">合作邮箱：DAN.LUO.BJ@CNLAUNCH.COM</a></li>
+        <div class="footer-box footer-box2">
+          <h3>
+            <span class="icon-head"></span>
+            咨询服务
+          </h3>
+          <ul>
+            <li>区块链应用落地</li>
+            <li>行业解决方案咨询</li>
           </ul>
         </div>
+        <div class="footer-code">
+          <img src="./common/images/gongzhonghao.png" alt="">
+          <img src="./common/images/weibo.png" alt="">
+        </div>
+        <div class="footer-box footer-box3">
+          <h3>深圳市元征科技股份有限公司北京研发中心</h3>
+          <br><br>
+          <ul>
+            <li>工作时间：08：30-18:30</li>
+            <li>服务电话：010-58205388</li>
+            <li>联系地址：北京市朝阳区建国路93号万达广场8号楼808</li>
+          </ul>
+        </div>
+        <div style="clear: both"></div>
+        <p>Copyright © 2018 深圳市元征科技股份有限公司北京研发中心    京ICP备************</p>
       </div>
     </div>
   </div>
@@ -66,25 +109,6 @@
     data() {
       return {
         isRouterAlive: true,
-        switchover: false,
-        isLogin: false,
-        userName: "",
-      }
-    },
-    beforeMount() {
-      if (JSON.parse(sessionStorage.getItem("loginInfo"))) {
-        this.isLogin = true;
-        this.userName = JSON.parse(sessionStorage.getItem("loginInfo")).user.phone.substr(3)
-      } else {
-        this.isLogin = false
-      }
-    },
-    beforeUpdate() {
-      if (JSON.parse(sessionStorage.getItem("loginInfo"))) {
-        this.isLogin = true;
-        this.userName = JSON.parse(sessionStorage.getItem("loginInfo")).user.phone.substr(3)
-      } else {
-        this.isLogin = false
       }
     },
     methods: {
@@ -94,163 +118,202 @@
           this.isRouterAlive = true
         })
       },
-      dropOut(command) {
-        sessionStorage.removeItem('loginInfo');
-        sessionStorage.removeItem('userInfo');
-        this.switchover = false;
-        window.location.href="#/home"
-        location.reload()
-      },
-      toggle() {
-        this.switchover = !this.switchover
-      },
-      leaveUl() {
-        this.switchover = false
-      },
+
     }
   }
 </script>
 
-<style lang="stylus">
+
+<style scoped lang="stylus">
   #app {
     /*min-height: 100vh;*/
     display: flex;
     flex-direction: column;
   }
-
-  .head-wrap {
+  /*顶部header*/
+  .head-wrap{
     width: 100%;
-    min-width 1274px
-    height: 48px;
-    background-color: rgba(1, 1, 1, 0.82);
+    min-width: 1274px;
+    height: 70px;
+    /*background-color: #02a1de;*/
+    background-color: rgba(0, 186, 255, 0.85);
     position: fixed;
     z-index: 9999;
-    .head {
-      box-sizing: border-box
-      width: 1200px;
-      height 48px
-      line-height 48px
-      margin: 0 auto;
-      font-size 0
-      .router-link-active {
-        color #ffffff
-      }
-      li {
-        display inline-block
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.6);
-        vertical-align top
-      }
-      .logo{
-        margin-right 586px
-        a{
-          display inline-block
-          width 32px
-          height 38px
-          margin-top 5px
-          background-image: url('./head_logo.png');
-          background-repeat: no-repeat;
-          background-position: top left;
-        }
-      }
-      li:nth-child(2){
-        margin-right 212px
-      }
-      .no_login{
-        width 110px
-        text-align right
-        margin-left 164px
-      }
-      .login{
-        margin-left 164px
-        cursor pointer
-        width 110px
-        text-align right
-        position relative
-        ul{
-          position absolute
-          top 48
-          right 0
-          text-align center
-          width 110px
-          color #666666
-          li{
-            width 110px
-            background-color #ffffff;
-            color #529bff;
-            a{
-              color #529bff;
-            }
-          }
-          li:hover{
-            background-color #529bff;
-            color #ffffff;
-            a{
-              color #ffffff;
-            }
-          }
-        }
-      }
+  }
+  .head-wrap .head {
+    box-sizing: border-box;
+    width: 1200px;
+    height:70px;
+    line-height: 70px;
+    margin: 0 auto;
+  }
+  .logo{
+    margin-top: 16px;
+    float: left;
+  }
+  .head ul{
+    float: left;
+  }
+  .head ul li:first-child{
+    margin-left: 300px;
+  }
+  .head ul li{
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+    width: 200px;
+    text-align: center;
+  }
+  .head ul li a{
+    transition: 0.1s all linear;
+    color: #ffffff;
+    padding-bottom: 23px;
+  }
+  .head ul li div{
+    display: none;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 186, 255, 0.7);
+    color: #ffffff;
+    position: fixed;
+    left: 0;
+    margin-top: 3px;
+  }
+  .head ul li:hover a{
+    border-bottom: 2px solid #ffffff;
+    transition-delay: 0.1s;
+  }
+  .head ul li:hover div{
+    display: block;
+    /*调用动画效果*/
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: 0.2s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0; /*初始状态 透明度为0*/
+    }
+    20%{
+      opacity: .2;
+    }
+    50% {
+      opacity: .5; /*中间状态 透明度为0.5*/
+    }
+    70%{
+      opacity: .7;
+    }
+    100% {
+      opacity: 1; /*结尾状态 透明度为1*/
     }
   }
+  .anchor-list a{
+    font-size: 16px;
+    padding-bottom: 0 !important;
+  }
+  .head ul li:hover .anchor-list a{
+    border-bottom: none;
+  }
+  .anchor-list{
+    margin-left: 290px;
+  }
+  .anchor-list li{
+    margin-left: 0 !important;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-top: 12px;
+    text-align: left !important;
+  }
+  .anchor-list li:nth-child(4){
+    text-align: center !important;
+  }
+  .head section{
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  .about-us{
+    margin-left: 400px;
+  }
+  .about-us li {
+    margin-top: 34px;
+  }
 
+  /*中间middle*/
   .main_wrap {
     flex: 1;
     box-sizing: border-box;
     margin: 0 auto;
-    width 100%
-    min-width 1274px
-    background-color #ffffff
+    width: 100%;
+    min-width: 1274px;
+    background-color: #ffffff
   }
-
+  /*底部footer*/
   .footer-wrap {
-    width 100%
-    min-width 1274px
-    background-color: #f2f2f2;
-    .footer {
-      box-sizing: border-box
-      width 1200px
-      height 135px
-      margin 0 auto
-      font-size 0
-      //text-align center
-      .ft-box {
-        display inline-block
-        vertical-align top
-        span {
-          display block
-          padding-top 22px
-          padding-bottom 19px
-          text-align left
-          font-size 16px
-          color #333333;
-        }
-        .text {
-          li {
-            height 26px
-            line-height 26px
-            a {
-              font-size 14px
-              color #333333;
-            }
-          }
-        }
-      }
-      .ft-box:first-child {
-        margin-right 166px
-        a {
-          display inline-block
-          width 240px
-          height 62px
-          margin-top 26px
-          background-image: url('./footer_logo.png');
-          background-position: top left;
-          background-repeat: no-repeat;
-        }
-      }
-      .ft-box:last-child {
-        margin-left 314px
-      }
-    }
+    width:100%;
+    min-width: 1274px;
+    background-color: #434343;
+  }
+  .footer {
+    box-sizing: border-box;
+    width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 14px;
+    padding-top: 50px;
+  }
+  .icon-product{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background: url("./common/images/product.png") no-repeat center;
+    background-size: 100% 100%;
+    position: relative;
+    top: 2px;
+  }
+  .icon-head{
+    width: 19px;
+    height: 21px;
+    display: inline-block;
+    background: url("./common/images/consultation.png") no-repeat center;
+    background-size: 100% 100%;
+    position: relative;
+    top: 4px;
+  }
+  .footer-box{
+    height: 200px;
+    width: 220px;
+    float: left;
+  }
+  .footer-box h3{
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .footer-box ul {
+    line-height: 24px;
+    margin-left: 24px;
+  }
+  .footer-box2 ul{
+    margin-left: 26px;
+  }
+  .footer-code{
+    width: 300px;
+    height: 194px;
+    float: left;
+    padding-top: 16px;
+  }
+  .footer-code img{
+    margin-left: 16px;
+  }
+  .footer-box3{
+    float: right;
+    width: 368px;
+    text-align: right;
+  }
+  .footer p{
+    text-align: center;
   }
 </style>

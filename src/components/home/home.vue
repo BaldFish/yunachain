@@ -493,7 +493,7 @@
       margin 0 auto
       box-sizing border-box
       height 1080px
-      background-image: url('./images/bj3.png');
+   /*   background-image: url('./images/bj3.png');*/
       background-position: top center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -502,7 +502,7 @@
         width 1188px
         height 1080px
         margin 0 auto
-        background-image: url('./images/yuan.png'), url('./images/WechatIMG189.png');
+      /*  background-image: url('./images/yuan.png'), url('./images/WechatIMG189.png');*/
         background-repeat: no-repeat, no-repeat;
         background-position: bottom 128px left, bottom 240px right;
         padding-top 282px
