@@ -3,6 +3,7 @@ import Router from 'vue-router'
 Vue.use(Router);
 import myHome from '@/components/home/home'
 import myContactUs from '@/components/contactUs/contactUs'
+import myJoinUs from '@/components/joinUs/joinUs'
 import myLogin from '@/components/login/login'
 
 
@@ -21,6 +22,11 @@ export default new Router({
       path: '/contactUs',
       name: 'contactUs',
       component: myContactUs
+    },
+    {
+      path: '/joinUs',
+      name: 'joinUs',
+      component: myJoinUs
     },
     {
       path: '/login',
