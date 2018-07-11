@@ -1,124 +1,67 @@
 <template>
-  <div class="contactUs">
-    <div class="banner_wrap">
-      <div class="banner"></div>
-    </div>
-    <div class="info_wrap">
-      <div class="info">
-        <div class="address">
-          <h3>公司地址</h3>
-          <p>北京市朝阳区建国路93号万达广场8号楼808</p>
-        </div>
-        <div class="line"></div>
-        <div class="consult">
-          <h3>合作咨询</h3>
-          <p>咨询电话：010 - 58205388</p>
-          <p>合作邮箱：dan.luo.bj@cnlaunch.com</p>
-        </div>
-        <div class="line"></div>
-        <div class="support">
-          <h3>技术支持</h3>
-          <p>咨询电话：010 - 58205388</p>
-          <p>合作邮箱：dan.luo.bj@cnlaunch.com</p>
-        </div>
-      </div>
-    </div>
+  <div>
+    <div class="contact-bg"></div>
+    <p class="address">北京市 朝阳区建国路93号万达广场8号楼808</p>
+    <!--地图容器-->
+    <div id="allmap"></div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "contactUs",
-    data() {
-      return {}
+    data () {
+      return {
+
+      }
     },
-    created() {
+    mounted () {
+      this.ready()
     },
-    mounted() {
-    },
-    methods: {},
-    watch: {},
-    computed: {},
-    components: {},
+    methods: {
+      ready () {
+        // 百度地图API功能
+        // 创建Map实例
+        var map = new BMap.Map("allmap");
+        // 初始化地图,设置中心点坐标和地图级别
+        map.centerAndZoom(new BMap.Point(116.331398,39.897445),16);
+        // 开启鼠标滚轮缩放
+        map.enableScrollWheelZoom(true);
+
+        // 定位--大望路万达广场8号楼
+        var new_point = new BMap.Point(116.477472,39.915897);
+        // 创建标注
+        var marker = new BMap.Marker(new_point);
+        // 将标注添加到地图中
+        map.addOverlay(marker);
+        map.panTo(new_point);
+
+        // 添加工具条、比例尺控件
+        map.addControl(new BMap.ScaleControl({anchor:BMAP_ANCHOR_TOP_LEFT}));
+        map.addControl(new BMap.NavigationControl());
+        map.addControl(new BMap.NavigationControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,type:BMAP_NAVIGATION_CONTROL_SMALL}));
+
+      }
+    }
   }
 </script>
 
 <style scoped lang="stylus">
-.contactUs{
-  width 100%
-  .banner_wrap{
-    margin 0 auto
-    height 500px
-    box-sizing border-box
-    background-image: url('./images/banner.png');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size:cover
-    .banner{}
+  #allmap{
+    width: 100%;
+    height: 680px;
   }
-  .info_wrap{
-    background-color: #ffffff;
-    .info{
-      box-sizing border-box
-      height 420px
-      padding-top 80px
-      font-size 0
-      text-align center
-      div{
-        display inline-block
-        font-size: 18px;
-        color: #666666;
-        vertical-align top
-        text-align center
-        h3{
-          font-size: 22px;
-          color: #333333;
-          padding-top 128px
-          padding-bottom 37px
-        }
-        p{
-          line-height 24px
-        }
-      }
-      .address{
-        width 210px
-        height 228px
-        margin-right 94px
-        h3{
-          background-image: url('./images/address.png');
-          background-position: top center;
-          background-repeat: no-repeat;
-        }
-      }
-      .line{
-        box-sizing border-box
-        width 1px
-        height 176px
-        margin-top 40px
-        border-left 1px dashed #bfbfbf;
-      }
-      .consult{
-        width 324px
-        height 228px
-        margin-left 80px
-        margin-right 80px
-        h3{
-          background-image: url('./images/cooperation.png');
-          background-position: top center;
-          background-repeat: no-repeat;
-        }
-      }
-      .support{
-        width 324px
-        height 228px
-        margin-left 32px
-        h3{
-          background-image: url('./images/Support.png');
-          background-position: top center;
-          background-repeat: no-repeat;
-        }
-      }
-    }
+  .contact-bg{
+    width: 100%;
+    height: 600px;
+    background: url("./images/banner.png") no-repeat center;
+    background-size: 100% 100%;
   }
-}
+  .address{
+    margin: 30px auto;
+    width: 240px;
+    line-height: 22px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+  }
 </style>
