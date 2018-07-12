@@ -4,6 +4,7 @@ Vue.use(Router);
 import myHome from '@/components/home/home'
 import myContactUs from '@/components/contactUs/contactUs'
 import myJoinUs from '@/components/joinUs/joinUs'
+import myCompanyProfile from '@/components/companyProfile/companyProfile'
 import myLogin from '@/components/login/login'
 
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/joinUs',
       name: 'joinUs',
       component: myJoinUs
+    },
+    {
+      path: '/companyProfile',
+      name: 'companyProfile',
+      component: myCompanyProfile
     },
     {
       path: '/login',
