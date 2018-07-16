@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <section class="banner_wrap">
+      <a name="banner"></a>
       <div class="banner">
         <p>元<img src="./images/yuan.png" alt="">链</p>
         <p>关 注 于 区 块 链 基 础 框 架 及 产 业 落 地 的 专 业 团 队</p>
@@ -8,6 +9,7 @@
     </section>
     <section class="baas_wrap">
       <div class="baas">
+        <a name="baas" class="anchor-point"></a>
         <div class="title">
           <p>
             <span class="left-span"></span>
@@ -39,6 +41,7 @@
     <div style="clear: both"></div>
     <section class="fabric_wrap">
       <div class="fabric">
+        <a name="fabric" class="anchor-point"></a>
         <div class="title">
           <p>
             <span class="left-span"></span>
@@ -78,6 +81,7 @@
     <div style="clear: both"></div>
     <section class="system_wrap">
       <div class="system">
+        <a name="system" class="anchor-point"></a>
         <div class="title">
           <p>
             <span class="left-span"></span>
@@ -109,6 +113,7 @@
     </section>
     <div style="clear: both"></div>
     <section class="wallet_wrap">
+      <a name="wallet"></a>
       <div class="wallet">
         <p>数字货币钱包</p>
         <p>用户可以随时通过钱包查看其存储在区块链的资产，可以通过区块链自由地在数字世界中进行投资获利以及转入转出，确切地享受到区块链到来的好处。从而提升数字资产流通效率，真正达到“多方发行、自由流通”的效果。</p>
@@ -116,6 +121,7 @@
     </section>
     <section class="fabric_wrap">
       <div class="fabric">
+        <a name="ipfs" class="anchor-point"></a>
         <div class="title ipfs-title">
           <p>
             <span class="left-span"></span>
@@ -142,12 +148,14 @@
     </section>
     <div style="clear: both"></div>
     <section class="wallet_wrap browser_wrap">
+      <a name="browser"></a>
       <div class="wallet">
         <p>区块链浏览器</p>
         <p>在不涉及隐私的情况下，区块链浏览器可实时查看整个区块链存储的数据信息</p>
       </div>
     </section>
     <section class="service_wrap">
+      <a name="service" class="anchor-point"></a>
       <div class="service">
         <div class="title">
           <p>
@@ -176,6 +184,7 @@
     <div style="clear: both"></div>
     <section class="technology_wrap">
       <div class="technology">
+        <a name="technology" class="anchor-point"></a>
         <div class="title">
           <p>
             <span class="left-span"></span>
@@ -226,6 +235,7 @@
     <div style="clear: both"></div>
     <section class="patent_wrap">
       <div class="patent">
+        <a name="patent" class="anchor-point"></a>
         <div class="title">
           <p>
             <span class="left-span"></span>
@@ -247,6 +257,7 @@
     <div style="clear: both"></div>
     <section class="partner_wrap">
       <div class="partner">
+        <a name="partner" class="anchor-point"></a>
         <div class="title">
           <p>
             <span class="left-span"></span>
@@ -329,7 +340,7 @@
     text-align: center;
   }
   .title{
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     margin-bottom: 60px;
   }
   .title p:first-child{
@@ -482,7 +493,6 @@
     height: 800px;
     background: url("./images/shuzi_bj.png") no-repeat center;
     background-size: 100% 100%;
-    margin-bottom: 80px;
   }
   .wallet{
     margin:0 auto;
@@ -573,9 +583,6 @@
     width: 1200px;
     text-align: center;
     margin:0 auto;
-  }
-  .technology .title{
-    padding-top: 95px;
   }
   .technology .left-span{
     margin-right: 155px;
@@ -670,9 +677,6 @@
     text-align: center;
     margin: 0 auto;
   }
-  .partner .title{
-    padding-top: 100px;
-  }
   .partner .left-span{
     margin-right: 150px;
   }
@@ -694,5 +698,10 @@
   }
   .partner ul li:nth-child(6){
     margin-right: 0;
+  }
+  .anchor-point{
+    display: inline-block;
+    width: 200px;
+    height: 70px;
   }
 </style>

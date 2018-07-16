@@ -10,29 +10,33 @@
             <router-link to="/home">首页</router-link>
           </li>
           <li>
-            <router-link to="/contactUs">产品及解决方案</router-link>
+            <router-link to="/home">产品及解决方案</router-link>
             <div>
               <section>
                 <ul class="anchor-list">
-                  <li><a href="">产品及解决方案</a></li>
-                  <li><a href="">BAAS产品</a></li>
-                  <li><a href="">以太坊/FABRIC基础平台</a></li>
-                  <li><a href="">区块链业务系统</a></li>
-                  <li><a href="">数字货币钱包</a></li>
-                  <li><a href="">PFS技术</a></li>
-                  <li><a href="">区块链浏览器</a></li>
+                  <li><a href="#banner">产品及解决方案</a></li>
+                  <li><a href="#baas">BAAS产品</a></li>
+                  <li><a href="#fabric">以太坊/FABRIC基础平台</a></li>
+                  <li><a href="#system">区块链业务系统</a></li>
+                  <li><a href="#wallet">数字货币钱包</a></li>
+                  <li><a href="#ipfs">PFS技术</a></li>
+                  <li><a href="#browser">区块链浏览器</a></li>
+                  <li><a href="#service">咨询服务</a></li>
+                  <li><a href="#technology">技术优势</a></li>
+                  <li><a href="#patent">专利领先</a></li>
+                  <li><a href="#partner">合作伙伴</a></li>
                 </ul>
               </section>
             </div>
           </li>
           <li class="no_login">
-            <router-link to="/login">关于我们</router-link>
+            <router-link to="/companyProfile">关于我们</router-link>
             <div>
               <section>
                 <ul class="anchor-list about-us">
-                  <li><a href="">公司简介</a></li>
-                  <li><a href="">加入我们</a></li>
-                  <li><a href="">联系我们</a></li>
+                  <li><router-link to="/companyProfile">公司简介</router-link></li>
+                  <li><router-link to="/joinUs">加入我们</router-link></li>
+                  <li><router-link to="/contactUs">联系我们</router-link></li>
                 </ul>
               </section>
             </div>
@@ -216,7 +220,7 @@
     border-bottom: none;
   }
   .anchor-list{
-    margin-left: 290px;
+    margin-left: 142px;
   }
   .anchor-list li{
     margin-left: 0 !important;
@@ -225,9 +229,28 @@
     float: left;
     margin-top: 12px;
     text-align: left !important;
+    width: 176px !important;
   }
   .anchor-list li:nth-child(4){
+    text-align: center !important;margin-left: 30px
+  }
+  .anchor-list li:nth-child(4) a{
+    margin-left: 30px
+  }
+  .anchor-list li:nth-child(5){
     text-align: center !important;
+  }
+  .anchor-list li:nth-child(10){
+    text-align: center !important;
+  }
+  .anchor-list li:nth-child(11){
+    text-align: center !important;
+  }
+  .anchor-list li:nth-child(10) a{
+    margin-right: 20px;
+  }
+  .anchor-list li:nth-child(11) a{
+    margin-right: 32px;
   }
   .head section{
     width: 1200px;

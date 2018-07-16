@@ -73,7 +73,7 @@
 <style scoped lang="stylus">
   .contact-bg{
     width: 100%;
-    height: 600px;
+    height: 735px;
     background: url("./images/banner.png") no-repeat center;
     background-size: 100% 100%;
   }

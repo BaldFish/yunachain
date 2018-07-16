@@ -1,6 +1,15 @@
 <template>
   <div>
-    <div class="contact-bg"></div>
+    <div class="contact-bg">
+      <div class="bg-title">
+        <p>CONTACT&nbsp;&nbsp;US</p>
+        <p>联&nbsp;&nbsp;&nbsp;系&nbsp;&nbsp;&nbsp;我&nbsp;&nbsp;&nbsp;们</p>
+      </div>
+      <div class="bg-address">
+        <img src="./images/icon_location.png" alt="">
+        <p>建国路万达广场8号楼</p>
+      </div>
+    </div>
     <p class="address">北京市 朝阳区建国路93号万达广场8号楼808</p>
     <!--地图容器-->
     <div id="allmap"></div>
@@ -52,15 +61,38 @@
   }
   .contact-bg{
     width: 100%;
-    height: 600px;
+    height: 736px;
     background: url("./images/banner.png") no-repeat center;
     background-size: 100% 100%;
+    color: #ffffff;
+    text-align: center;
+    margin:0 auto;
+  }
+  .bg-title{
+    line-height: normal;
+  }
+  .bg-title p:first-child{
+    font-size: 52px;
+    font-weight: bold;
+    padding-top: 260px;
+  }
+  .bg-title p:last-child{
+    font-size: 30px;
+  }
+  .bg-address{
+    line-height: normal;
+    margin-top: 145px;
+    padding-right: 20px;
+  }
+  .bg-address p{
+    font-size: 16px;
+    margin-top: 5px;
   }
   .address{
     margin: 30px auto;
     width: 240px;
     line-height: 22px;
-    font-size: 18px;
+    font-size: 20px;
     color: #666;
     text-align: center;
   }

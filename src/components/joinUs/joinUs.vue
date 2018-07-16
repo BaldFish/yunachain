@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="contact-bg"></div>
+    <div class="contact-bg">
+      <p>加&nbsp;&nbsp;&nbsp;入&nbsp;&nbsp;&nbsp;我&nbsp;&nbsp;&nbsp;们</p>
+    </div>
     <div class="jb-title">
       <p>JOB POSITION</p>
       <p>招聘岗位</p>
@@ -104,9 +106,17 @@
 <style scoped lang="stylus">
   .contact-bg{
     width: 100%;
-    height: 600px;
+    height: 736px;
     background: url("./images/banner.png") no-repeat center;
     background-size: 100% 100%;
+  }
+  .contact-bg p{
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    padding-top: 325px;
   }
   .jb-title{
     margin: 30px auto;

@@ -5,7 +5,6 @@ import myHome from '@/components/home/home'
 import myContactUs from '@/components/contactUs/contactUs'
 import myJoinUs from '@/components/joinUs/joinUs'
 import myCompanyProfile from '@/components/companyProfile/companyProfile'
-import myLogin from '@/components/login/login'
 
 
 export default new Router({
@@ -34,11 +33,7 @@ export default new Router({
       name: 'companyProfile',
       component: myCompanyProfile
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: myLogin
-    },
+
 
   ]
 })
