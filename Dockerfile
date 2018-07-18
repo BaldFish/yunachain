@@ -13,7 +13,7 @@
  RUN npm run build
  
  # 容器对外暴露的端口号
- EXPOSE 5000
+ EXPOSE 2222
  
  # 容器启动时执行的命令，类似npm run dev
  CMD ["npm", "start"]
