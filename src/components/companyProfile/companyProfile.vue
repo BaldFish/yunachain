@@ -35,17 +35,17 @@
     </div>
     <section class="sec-pic">
       <div class="pic-left">
-        <img src="./images/test.png" alt="">
-        <img src="./images/test.png" alt="">
-        <img src="./images/test.png" alt="">
-        <img src="./images/test.png" alt="">
+        <img :src="http + imgList[0].furl" alt="">
+        <img :src="http + imgList[1].furl" alt="">
+        <img :src="http + imgList[2].furl" alt="">
+        <img :src="http + imgList[3].furl" alt="">
       </div>
       <div class="pic-middle">
-        <img src="./images/test.png" alt="">
+        <img :src="http + imgList[4].furl" alt="">
       </div>
       <div class="pic-right">
-        <img src="./images/test.png" alt="">
-        <img src="./images/test.png" alt="">
+        <img :src="http + imgList[5].furl" alt="">
+        <img :src="http + imgList[6].furl" alt="">
         <div class="next" @click="changePic">
           <img src="./images/change.png" alt="">
           <p>换一批</p>
@@ -57,14 +57,42 @@
 
 
 <script>
+  import axios from "axios";
+  import {baseURL} from '@/common/js/public.js';
+
   export default {
     data () {
       return {
+        http:'http://',
+        marker:'',
+        imgList:[
+          {furl:''},
+          {furl:''},
+          {furl:''},
+          {furl:''},
+          {furl:''},
+          {furl:''},
+          {furl:''}
+        ]
       }
+    },
+    mounted () {
+      this.changePic()
     },
     methods: {
       changePic(){
-        console.log(666)
+        axios({
+          method: "GET",
+          url: `${baseURL}/v1/yuanchain?marker=${this.marker}&limit=7`,
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }).then((res) => {
+          this.imgList = res.data.info;
+          this.marker = res.data.marker
+        }).catch((err) => {
+          console.log(err);
+        });
       }
     }
   }
