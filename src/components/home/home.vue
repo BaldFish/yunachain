@@ -1,12 +1,21 @@
 <template>
   <div class="home">
-    <section class="banner_wrap">
+  <!--  <section class="banner_wrap">
       <a name="banner"></a>
       <div class="banner">
         <p>元<img src="./images/yuan.png" alt="">链</p>
         <p>关 注 于 区 块 链 基 础 框 架 及 产 业 落 地 的 专 业 团 队</p>
       </div>
-    </section>
+    </section>-->
+
+    <div class="carousel">
+      <el-carousel :interval="3000" arrow="always">
+        <el-carousel-item v-for="item in bannerList" :key="item.link_url">
+          <a :href="item.link_url"><img :src="item.picture_url" alt=""></a>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+
     <section class="baas_wrap">
       <div class="baas">
         <a name="baas" class="anchor-point"></a>
@@ -291,16 +300,33 @@
 </template>
 
 <script>
+  import axios from "axios";
+  import {baseURL} from '@/common/js/public.js';
 
   export default {
     name: "home",
-    components: {},
     data() {
       return {
+        //用webpack搭建的项目不能直接使用绝对路径，要用require，如果不使用这个，必须是线上图片。http类型的
+        bannerList:[
+          {link_url:'javascript:void(0)',picture_url:require('./images/banner.png')},
+          {link_url:'javascript:void(0)',picture_url:require('./images/banner.png')},
+        ],
       }
     },
-    methods: {
+    mounted() {
+      //获取banner图
+      axios({
+        method: 'get',
+        url: `${baseURL}/v1/broadcast/s?type_id=5b572f90a4cc0d6ea8ba5482`
+      }).then(res => {
+        this.bannerList = res.data
+      }).catch(error => {
+        console.log(error)
+      });
     },
+    methods: {
+    }
   }
 </script>
 
@@ -703,5 +729,51 @@
     display: inline-block;
     width: 200px;
     height: 70px;
+  }
+</style>
+<style lang="stylus">
+  .carousel{
+  max-width 1920px
+  //min-width 1212px
+  height 1080px
+  margin 0 auto
+  .el-carousel{
+  width 100%
+  height 100%
+  .el-carousel__container{
+  width 100%
+  height 100%
+  .el-carousel__arrow{
+    width:50px;
+    height: 50px;
+    font-size: 30px;
+  }
+  .el-carousel__item{
+  width 100%
+  height 100%
+  text-align center
+  a{
+    img{
+      width:1920px;
+      height 1080px
+      /*Firefox*/
+      margin:0 -moz-calc(50% - 1212px);
+      /*chrome safari*/
+      margin:0 -webkit-calc(50% - 1212px);
+      /*Standard */
+      margin:0 calc(50% - 1212px);
+    }
+  }
+  }
+  }
+  .el-carousel__indicators{
+  .el-carousel__indicator{
+    padding: 20px 6px;
+  .el-carousel__button{
+    width:36px;
+  }
+  }
+  }
+  }
   }
 </style>
