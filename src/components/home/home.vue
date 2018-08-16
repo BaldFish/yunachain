@@ -11,7 +11,7 @@
     <div class="carousel">
       <el-carousel :interval="3000" arrow="always">
         <el-carousel-item v-for="item in bannerList" :key="item.link_url">
-          <a :href="item.link_url"><img :src="item.picture_url" alt=""></a>
+          <a :href="item.link_url" target="_blank"><img :src="item.picture_url" alt=""></a>
         </el-carousel-item>
       </el-carousel>
     </div>
